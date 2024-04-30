@@ -28,6 +28,7 @@ module.exports = {
 			username,
 			email,
 			password: hashPassword(password),
+			role: 'ADMIN',
 			createdAt: new Date(),
 			updatedAt: new Date(),
 		};

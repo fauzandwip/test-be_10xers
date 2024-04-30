@@ -39,6 +39,10 @@ module.exports = (sequelize, DataTypes) => {
 					notEmpty: { msg: 'Username is required' },
 				},
 			},
+			role: {
+				type: DataTypes.ENUM('ADMIN', 'USER'),
+				defaultValue: 'USER',
+			},
 		},
 		{
 			sequelize,
