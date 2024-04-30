@@ -24,6 +24,11 @@ const errorHandler = (err, req, res, next) => {
 			message = err.message ?? 'Unauthenticated';
 			break;
 
+		case 'NotFound':
+			statusCode = 404;
+			message = err.message ?? 'Not Found';
+			break;
+
 		case 'SequelizeConstraintError':
 			statusCode = 409;
 			message = err.errors[0].message;
