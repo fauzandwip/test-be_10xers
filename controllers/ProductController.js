@@ -1,9 +1,19 @@
+const { Op } = require('sequelize');
 const { Product } = require('../models');
 
 class ProductController {
 	static async getAllProducts(req, res, next) {
 		try {
-			const products = await Product.findAll();
+			const { search } = req.query;
+			const query = { where: {} };
+
+			if (search) {
+				query.where['title'] = {
+					[Op.iLike]: `%${search}%`,
+				};
+			}
+
+			const products = await Product.findAll(query);
 
 			res.status(200).json({
 				status: 'success',
