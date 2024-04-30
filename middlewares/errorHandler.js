@@ -2,6 +2,11 @@ const errorHandler = (err, req, res, next) => {
 	let message, messages, statusCode;
 
 	switch (err.name) {
+		case 'BadRequest':
+			statusCode = 400;
+			message = err.message ?? 'Invalid user input';
+			break;
+
 		case 'SequelizeValidationError':
 			statusCode = 400;
 			messages = err.errors.map((error) => {
@@ -9,9 +14,9 @@ const errorHandler = (err, req, res, next) => {
 			});
 			break;
 
-		case 'BadRequest':
+		case 'JsonWebTokenError':
 			statusCode = 400;
-			message = err.message ?? 'Invalid user input';
+			message = err.message ?? 'Invalid Token';
 			break;
 
 		case 'Unauthenticated':
