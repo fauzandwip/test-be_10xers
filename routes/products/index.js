@@ -7,5 +7,6 @@ const router = require('express').Router();
 router.use(authentication, guardAdminOnly);
 router.get('/', ProductController.getAllProducts);
 router.get('/:id', ProductController.getProductById);
+router.post('/', ProductController.addProduct);
 
 module.exports = router;

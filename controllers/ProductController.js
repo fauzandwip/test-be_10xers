@@ -35,6 +35,28 @@ class ProductController {
 			next(error);
 		}
 	}
+	static async addProduct(req, res, next) {
+		try {
+			const { title, description, price, stock, brand, thumbnail } = req.body;
+
+			const newProduct = await Product.create({
+				title,
+				description,
+				brand,
+				thumbnail,
+				price: +price,
+				stock: +stock,
+			});
+
+			res.status(201).json({
+				status: 'success',
+				message: 'Success Add Product',
+				data: newProduct,
+			});
+		} catch (error) {
+			next(error);
+		}
+	}
 }
 
 module.exports = ProductController;

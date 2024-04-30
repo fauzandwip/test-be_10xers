@@ -13,8 +13,8 @@ const authentication = async (req, res, next) => {
 		}
 
 		const token = accessToken.replace('Bearer ', '');
-		const { id } = verifyToken(token);
-		const user = await User.findByPk(id);
+		const { email } = verifyToken(token);
+		const user = await User.findOne({ where: { email } });
 
 		if (!user) {
 			throw {
