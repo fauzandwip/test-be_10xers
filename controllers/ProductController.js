@@ -57,7 +57,7 @@ class ProductController {
 			next(error);
 		}
 	}
-	static async updateProduct(req, res, next) {
+	static async updateProductById(req, res, next) {
 		try {
 			const { id } = req.params;
 			const { title, description, price, stock, brand, thumbnail } = req.body;
@@ -83,6 +83,29 @@ class ProductController {
 			res.status(200).json({
 				status: 'success',
 				message: 'Success Update Product',
+			});
+		} catch (error) {
+			next(error);
+		}
+	}
+	static async deleteProductById(req, res, next) {
+		try {
+			const { id } = req.params;
+
+			const product = await Product.findByPk(id);
+
+			if (!product) {
+				throw {
+					name: 'NotFound',
+					message: 'Product not found',
+				};
+			}
+
+			await product.destroy();
+
+			res.status(200).json({
+				status: 'success',
+				message: 'Success Delete Product',
 			});
 		} catch (error) {
 			next(error);
