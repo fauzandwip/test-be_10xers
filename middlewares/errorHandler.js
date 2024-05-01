@@ -15,8 +15,8 @@ const errorHandler = (err, req, res, next) => {
 			break;
 
 		case 'JsonWebTokenError':
-			statusCode = 400;
-			message = err.message ?? 'Invalid Token';
+			statusCode = 401;
+			message = 'Invalid Token';
 			break;
 
 		case 'Unauthenticated':
