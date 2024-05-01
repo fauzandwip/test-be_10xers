@@ -45,7 +45,7 @@ class ProductController {
 			next(error);
 		}
 	}
-	static async addProduct(req, res, next) {
+	static async createProduct(req, res, next) {
 		try {
 			const { title, description, price, stock, brand, thumbnail } = req.body;
 
@@ -60,7 +60,7 @@ class ProductController {
 
 			res.status(201).json({
 				status: 'success',
-				message: 'Success Add Product',
+				message: 'Success Create Product',
 				data: newProduct,
 			});
 		} catch (error) {
