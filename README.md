@@ -22,6 +22,12 @@ This project builds a secure and versatile backend API using Node.js and Express
 
 [API Documentation URL](https://documenter.getpostman.com/view/25307672/2sA3JDi64D)
 
+## Demo Video
+
+[Video Demo - Part 1](https://www.loom.com/share/a28b136dbdc44ac88130a5e0a837ce98?sid=73d06250-1cbc-4038-983c-45db509e77d0)
+</br>
+[Video Demo - Part 2](https://www.loom.com/share/0ef629fb94ea4cb08bffcb7600934f40?sid=9a5f9576-da92-48e0-9776-54ce9908710a)
+
 ## Getting Started
 
 ### Prerequisites
